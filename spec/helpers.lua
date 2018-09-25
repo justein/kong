@@ -1214,6 +1214,9 @@ return {
     if not preserve_prefix then
       clean_prefix(prefix)
     end
+
+    collectgarbage()
+
     return ok, err
   end,
   -- Only use in CLI tests from spec/02-integration/01-cmd
