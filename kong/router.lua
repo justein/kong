@@ -258,14 +258,7 @@ local function marshall_route(r)
     end
   end
 
-  -- TODO: service.path is not supported in new model
-  local path = service.path or null
-
-  if path == null then
-    path = "/"
-  end
-
-  route_t.upstream_url_t.path = path
+  route_t.upstream_url_t.path = service.path or "/"
 
   return route_t
 end
