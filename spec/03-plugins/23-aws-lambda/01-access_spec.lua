@@ -281,10 +281,10 @@ for _, strategy in helpers.each_strategy() do
           ["Host"]         = "lambda.com",
           ["Content-Type"] = "application/json"
         },
-        body = '{"user": {"name": []}}'
+        body = '[{}, []]'
       })
       assert.res_status(200, res)
-      assert.equal('{"user":{"name":[]}}', string.gsub(res:read_body(), "\n",""))
+      assert.equal('[{},[]]', string.gsub(res:read_body(), "\n",""))
     end)
     it("invokes a Lambda function with POST and both querystring and body params", function()
       local res = assert(proxy_client:send {
